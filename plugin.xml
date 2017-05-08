@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-gcnsusersdefaults"
+        version="0.0.1">
+    <name>GCNSUsersDefaults</name>
+    <description>GCNSUsersDefaults Plugin for iOS</description>
+    <author>Giulio Caruso aka rdn</author>
+    <license>MIT License</license>
+    <keywords>cordova, ios, plugin, NSUsersDefault, app, store data</keywords>
+    <repo>https://github.com/rdn87/cordova-plugin-gcnsuserdefaults</repo>
+    
+    <!-- JS Module -->
+    <js-module src="www/gcnsusersdefaults.js" name="GCNSUsersDefaults">
+        <clobbers target="GCNSUsersDefaults" />
+    </js-module>
+
+    <!-- iOS -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="GCNSUsersDefaults">
+                <param name="ios-package" value="CDVGCNSUsersDefaults"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/CDVGCNSUsersDefaults.h" />
+        <source-file src="src/ios/CDVGCNSUsersDefaults.m" />       
+    </platform>
+</plugin>
