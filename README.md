@@ -1,7 +1,7 @@
 # cordova-plugin-gcnsusersdefaults
 NSUsersDefaults Wrapper Plugin for iOS
 
-Author: Giulio Caruso aka rdn
+Author: [Giulio Caruso aka rdn](https://twitter.com/iosdeveloper87)
 
 ## Adding the Plugin ##
 
