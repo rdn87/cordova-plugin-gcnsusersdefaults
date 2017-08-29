@@ -158,7 +158,29 @@
 
     
 }
+-(void)saveArrayByKey:(CDVInvokedUrlCommand *)command {
+    nsU = [NSUserDefaults standardUserDefaults];
+    
+    [self.commandDelegate runInBackground:^{
+        NSMutableArray *value = [NSMutableArray array];
+        NSString *key;
+        NSDictionary *options = [[NSDictionary alloc]init];
+        
+        if ([command.arguments count] > 0) {
+            options = [command argumentAtIndex:0];
+            key = [options objectForKey:@"key"];
+            value = [options objectForKey:@"value"];
+            
+        }
 
+        [nsU setObject:value forKey:@"ARRAY"];
+        [nsU synchronize];
+       
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:nil];
+      
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }];
+}
 -(void)getBoolByKey:(CDVInvokedUrlCommand *)command {
     nsU = [NSUserDefaults standardUserDefaults];
     
@@ -254,6 +276,26 @@
         double retValue = [nsU doubleForKey:key];
         
         CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDouble:retValue];
+        
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }];
+}
+
+-(void)getArrayByKey:(CDVInvokedUrlCommand *)command {
+    nsU = [NSUserDefaults standardUserDefaults];
+
+    [self.commandDelegate runInBackground:^{
+        NSString *key;
+        NSDictionary *options = [[NSDictionary alloc]init];
+        
+        if ([command.arguments count] > 0) {
+            options = [command argumentAtIndex:0];
+            key = [options objectForKey:@"key"];
+        }
+        
+        NSMutableArray *retValue = [nsU objectForKey:key];
+        
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsArray:retValue];
         
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }];

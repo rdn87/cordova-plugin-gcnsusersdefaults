@@ -73,10 +73,17 @@
 -(void)saveFloatByKey:(CDVInvokedUrlCommand *)command;
 
 /**
-*  Save the bool param in NSUsersDefaults
+*  Save Array param from NSUsersDefaults
 *
-*  @param command        with this param you can get (BOOLEAN) value from NSUsersDefaults
+*  @param command        with this param you can get (Array) value from NSUsersDefaults
 */
+-(void)saveArrayByKey:(CDVInvokedUrlCommand *)command;
+/**
+*  Save the array param in NSUsersDefaults
+*
+*  @param command        with this param you can add (Array) value in NSUsersDefaults
+*/
+
 -(void)getBoolByKey:(CDVInvokedUrlCommand *)command;
 
 /**
@@ -106,5 +113,12 @@
 *  @param command        with this param you can get (FLOAT) value from NSUsersDefaults
 */
 -(void)getFloatByKey:(CDVInvokedUrlCommand *)command;
+
+/**
+*  Retrive Array param from NSUsersDefaults
+*
+*  @param command        with this param you can get (Array) value from NSUsersDefaults
+*/
+-(void)getArrayByKey:(CDVInvokedUrlCommand *)command;
 
 @end
