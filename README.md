@@ -7,7 +7,7 @@ Author: [Giulio Caruso aka rdn](https://twitter.com/iosdeveloper87)
 
 Use the Cordova CLI and type in the following command:
 
-`cordova plugin add https://github.com/rdn87/cordova-plugin-gcnsusersdefaults.git`
+`cordova plugin add https://github.com/rdn87/cordova-plugin-gcnsusersdefaults`
 
 ## Description
 
